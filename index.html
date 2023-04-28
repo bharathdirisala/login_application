@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+background-color: #cdd7db;
+background-image: linear-gradient(100deg,#e4e9e8 0%,#4c4cee 100%);
+display: flex;
+flex-direction: column;
+align-items: center;
+line-height: 2;
+}
+form {
+    background-color: white;
+    max-width: 360px;
+    width: 100%;
+    padding: 52px 45px;
+    border-radius: 20px;
+    box-shadow: rgb(38,57,77) 0px 20px 30px -10px
+
+}
+.row{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px
+}
+.row label{
+    font-size:17px;
+}
+.row input{
+    flex:1;
+    padding:13px;
+    border:1px solid rgb(114, 109, 109);
+    border-radius: 5px;
+}
+.btn{
+    width: 100%;
+    padding: 9px;
+    font-size: 13px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(0, 102, 255);
+    cursor: pointer;
+    margin-top: 15px;
+}
+@media(max-width:458px) {
+    body{
+        margin:0 18px
+    }
+    form{
+        background-color: #cdd7db;
+        border: none;
+        padding: 20px 10px;
+        box-shadow: none;
+    }
+}
+    </style>
+</head>
+<h2>Login</h2>
+<body>
+    <form onsubmit="return validate()">
+        <div class="row">
+            <lable>username:</lable>
+            <input type="text" id="username" placeholder="Enter your name"/>
+        </div>
+        <div class="row">
+            <lable>password:</lable>
+            <input id="password" type="password" placeholder="Enter  password"/>
+        </div>
+        <div>
+            <button class="btn">Login</button>
+        </div>
+    </form>
+    <script>
+        function validate(){
+            var username=document.getElementById("username").value 
+            var password=document.getElementById("password").value 
+            var usernameCheck=/^[a-zA-Z0-9]+@[a-z]+\.[a-z]{2,3}$/
+            var passwordCheck=/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{4,6}$/
+            console.log(username,password)
+            if(username==""){
+                alert("plz enetr username")
+                return false
+            }
+            if(!username.match(usernameCheck)){
+                alert("check your username")
+                return false
+            }
+            if(!password.match(passwordCheck)){
+                alert("password must carry one uppercase,lowercase and anumber")
+                return false
+            }
+            return true
+        }
+    </script>
+</body>
+</html>
